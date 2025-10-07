@@ -1,0 +1,9 @@
+# Requerimientos básicos para el proyecto RC (notebook + scripts)
+
+# Núcleo científico
+numpy
+scipy
+matplotlib
+
+# Para ejecutar notebooks
+jupyter

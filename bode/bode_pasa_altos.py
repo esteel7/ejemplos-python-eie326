@@ -2,12 +2,14 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 # Parámetros
-R = 1e3       # 1 kΩ
-C = 1e-6      # 1 µF
+R = 100       # 100 Ω
+L = 250e-3      # 250 mH
 
-# Numerador y denominador de H(w) = 1 / (1 + jwRC)
-num = [1]
-den = [R*C, 1]
+# \omega_c = R/L = 400 rad/s (63.7 Hz)
+
+# Numerador y denominador de H(s) = sL / (R + sL)
+num = [L, 0]
+den = [L, R]
 
 # Crear sistema
 system = signal.TransferFunction(num, den)
@@ -20,7 +22,7 @@ plt.figure(figsize=(8,6))
 
 plt.subplot(2,1,1)
 plt.semilogx(w, mag)
-plt.title(r'Diagrama de Bode $H(\omega)=1 /(1+j\omega RC)$')
+plt.title(r'Diagrama de Bode $H(\omega)=j\omega L /(R+j\omega L)$')
 plt.ylabel('Magnitud [dB]')
 plt.grid(True, which='both', ls='--')
 
