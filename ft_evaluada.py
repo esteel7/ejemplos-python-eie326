@@ -26,3 +26,10 @@ phase = np.angle(Hjw[0], deg=True)
 print(f"H(j{omega}) = {Hjw[0]}")
 print(f"Magnitud = {magnitude}")
 print(f"Fase = {phase} grados")
+
+# Frecuencia de corte
+omega_c = (R1 + R2) / (R1 * R2 * C)
+f_c = omega_c / (2 * np.pi)
+
+print(f"Frecuencia de corte ωc = {omega_c:.6f} rad/s")
+print(f"Frecuencia de corte fc = {f_c:.3f} Hz")
